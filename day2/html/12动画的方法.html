@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>动画的方法</title>
+        <style>
+            img{
+                position:absolute;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script> 
+        <script>
+           $(function(){
+               $("#btn").click(function(){
+                   $("#im").animate({"width":500,"height":400,"left":30,"top":600},2000,function(){
+                      $("#im").animate({"width":"50","height":50,"left":300,"top":100},1000); 
+                   });
+               });
+           }); 
+        </script>
+    </head>
+    <body>
+    <input type="button" value="动画效果" id="btn">
+    <img src="bird.jpg" alt="" id="im">  
+    </body>
+</html>

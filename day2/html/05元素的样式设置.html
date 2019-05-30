@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>元素的样式设置</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //页面加载事件
+            $(function(){
+                //通过id选择器获取按钮 添加点击事件
+                $("#btn").click(function(){
+                    //设置div的样式 方法一
+                    // $("#box").css("width","300px");
+                    // $("#box").css("height","400px");
+                    // $("#box").css("backgroundColor","pink");
+
+                    //方法二 链式编程
+                    // $("#box").css("width","300px").css("height","400px").css("backgroundColor","pink");
+
+                    //方法三 传入对象
+                    var json = {"width" : "300px","height" : "400px","backgroundColor" : "pink"};
+                    $("#box").css(json);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="显示效果" id="btn">
+        <div id="box"></div>
+    </body>
+</html>

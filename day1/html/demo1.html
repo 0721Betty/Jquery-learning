@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>初次体验JQuery</title>
+    </head>
+    <body>
+        <input type="button" value="显示效果" id="btn">
+        <div id="dv"></div>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //点击按钮，设置div的宽高及背景颜色
+            $("#btn").click(function(){
+                $("#dv").css({"width":"200px","height":"100px","backgroundColor":"yellow"});
+            });
+        </script>
+    </body>
+</html>

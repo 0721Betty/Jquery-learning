@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>操作当前元素的兄弟元素</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #dv{
+                width: 300px;
+                height: 300px;
+                border: 2px solid pink;
+                margin: 20px auto;
+                text-align: center;
+            }
+            #uu{
+                list-style-type: none;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                $("#dv>#uu>li").mouseenter(function(){
+                    //当前的li有背景颜色 其他的兄弟元素没有
+                    $(this).css("backgroundColor","red").siblings().css("backgroundColor","");
+                }).mouseleave(function(){
+                    //当前的li中的父级元素中所有的li背景去掉
+                    $(this).parent().children("li").css("backgroundColor","");
+                }).click(function(){
+                    //鼠标点击后当前元素前面的兄弟元素变绿色
+                    $(this).prevAll().css("backgroundColor","green");
+                    //鼠标点击后当前元素后面的兄弟元素变蓝色
+                    $(this).nextAll().css("backgroundColor","blue");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="dv">
+            <ul id="uu">
+                <li>香蕉</li>
+                <li>苹果</li>
+                <li>柿子</li>
+                <li>葡萄</li>
+                <li>芒果</li>
+                <li>西瓜</li>
+                <li>菠萝</li>
+                <li>草莓</li>
+                <li>木瓜</li>
+                <li>龙眼</li>
+                <li>火龙果</li>
+                <li>桃子</li>
+            </ul>
+        </div>
+        
+    </body>
+</html>

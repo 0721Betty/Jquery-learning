@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>案例评分效果实现</title>
+        <style>
+            ul{
+                list-style-type: none;
+            }
+            li{
+                display: inline-block;
+                font-size: 30px;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                //获取所有的li标签
+                $(".comment>li").mouseenter(function(){
+                    //当前的li是实心的五角星，前面的li也都是实心的五角星，鼠标后面的li是空心的五角星
+                    $(this).text("★").prevAll("li").text("★").end().nextAll("li").text("☆");
+                }).click(function(){
+                    //做一个记录
+                    //点哪个li就为这个li添加一个自定义属性，作为标识，但是其他的li中的这个自定义属性要删除
+                    $(this).attr("index","10").sibings("li").removeattr("index");
+                }).mouseleave(function(){
+                    //鼠标离开的时候，获取那个带有index自定义属性的li，然后改变这个li中的五角星
+                    //同时前面的五角星也都是实心的,同时后面的五角星都是空心的
+                    $(".comment>li").text("☆");//先干掉所有li中实心的五角星
+                    $(".comment>li[index=10]").text("★").prevAll("li").text("★");
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>   
+        
+    </body>
+</html>

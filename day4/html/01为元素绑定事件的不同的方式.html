@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>为元素绑定事件的不同的方式</title>
+        <style>
+            div{
+                width: 300px;
+                height: 200px;
+                background-color: green;
+            }
+            p{
+                width: 100px;
+                height: 30px;
+                background-color: red;
+                /* 设置光标移动到p上的样式 */
+                cursor: pointer;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //如果是先创建元素，再为这个元素绑定事件(对象.事件名字(事件处理函数的方式))，
+            //后面再创建的一样的元素没有该事件
+            $(function(){
+                $("#btn").click(function(){
+                    //点击按钮为div中添加一个元素
+                    var p = $("<p>这是一个p</p>");
+                    $("#dv").append(p);
+                    //该方法只有p有效 下面的p2无效
+                    // $("p").click(function(){
+                    //     alert("呵呵呵");
+                    // });
+                    //效果同上
+                    // $("p").bind("click",function(){
+                    //     alert("aaa");
+                    // });
+                    
+                    //该方法对下面的p2也有效
+                    $("#dv").delegate("p","click",function(){
+                        alert("ooo");
+                    });
+                });
+
+                $("#btn2").click(function(){
+                    //点击按钮为div中添加一个元素
+                    var p = $("<p>这是一个p2</p>");
+                    $("#dv").append(p);
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="绑定事件" id="btn">
+    <input type="button" value="绑定事件2" id="btn2">  
+    <div id="dv"></div>
+    </body>
+</html>

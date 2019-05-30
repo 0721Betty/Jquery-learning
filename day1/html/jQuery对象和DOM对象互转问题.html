@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery对象和DOM对象互转问题</title>
+    </head>
+    <body>
+        <input type="button" value="按钮" id="btn">
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //DOM获取的---DOM对象
+            var btnObj1 = document.getElementById("btn");
+
+            //jQuery获取的jQuery对象
+            var btnObj2 = $("#btn");
+            //上面两个对象不是同一个对象，只有jQuery对象才能调用jQuery的方法
+            //DOM对象需要使用jQuery方法的话，需要将DOM对象转成jQuery对象
+            //将DOM对象转成jQuery对象即   $(DOM对象)就是jQuery对象
+
+            //将jQuery对象转成DOM对象即   j Query对象[0]就是DOM对象
+        </script>
+    </body>
+</html>

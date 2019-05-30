@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>案例点击按钮动态的创建表格</title>
+        <style>
+            #dv{
+                width:600px;
+                height: 450px;
+                border: 1px solid red;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //案例 点击按钮在div中创建一个表格
+            //表格数据的数组
+            var arr=[
+                {"name":"传智播客","href":"http://www.itcast.cn"},
+                {"name":"百度","href":"http://www.baidu.com"},
+                {"name":"淘宝","herf":"http://www.taobao.com"},
+                {"name":"360","href":"http://www.360.com"},
+                {"name":"优酷","href":"http://www.youku.com"}
+            ]
+            $(function(){
+                $("#btn").click(function(){
+                    //创建表格
+                    var table = $("<table border='1' cellspacing='0' cellpadding='0'></table>");
+                    //表格加入到div中
+                    $("#dv").append(table);
+                    //循环遍历数组，创建行
+                    for(var i=0;i<arr.length;i++){
+                        var dt = arr[i];//每个数组元素，都是对象
+                        //创建行 并加入到table中
+                        var tr = $("<tr></tr>");
+                        table.append(tr);
+                        //在列中显示内容,列在行中
+                        //创建td,并加入到tr中
+                        var td1 = $("<td>"+dt.name+"</td>");
+                        //第一个列加入到tr中
+                        tr.append(td1);
+                        var td2 = $("<td><a href = "+dt.href+">"+dt.name+"</a></td>");
+                        //第二个列加入到tr中
+                        tr.append(td2);
+
+                        //表格整体背景为红色
+                        table.css("backgroundColor","red");
+                        //鼠标进入到每一行时有高亮显示效果
+                        tr.mouseenter(function(){
+                            $(this).css("backgroundColor","green");
+                        }).mouseleave(function(){
+                            $(this).css("backgroundColor","");
+                        });
+                    }
+                });
+            });    
+        </script>
+    </head>
+    <body>
+    <input type="button" value="创建一个表格" id="btn">   
+    <div id="dv"></div>
+    </body>
+</html>

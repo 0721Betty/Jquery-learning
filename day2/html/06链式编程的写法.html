@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>链式编程的写法</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //在jQuery中，如果一个对象调用了一个方法，那么这个方法是设置的方式，一般调用后
+            //返回来的都是当前调用该方法的对象，具体是不是这个对象 最好验证一下
+            //页面加载事件
+            $(function (){
+                $("#btn").click(function (){
+                    //链式编程
+                    var txt = $("p").text("这是一个p").css({"fontSize":"30px","color":"red"});
+                    // console.log(txt);
+                });
+            });
+        </script>
+    </head>
+    <body>
+       <input type="button" value="显示效果" id="btn">
+       <p>那些你很冒险的梦，我陪你去疯</p> 
+        
+    </body>
+</html>

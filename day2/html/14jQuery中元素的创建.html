@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery中元素的创建</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            // $(function(){
+            //     $("#btn").click(function(){
+            //         //创建一个p
+            //        var pObj = $("<p>呵呵呵呵呵呵呵</p>");
+            //        //父级元素.append(子集元素)
+            //        $("#dv").append(pObj);
+            //     });
+            // });
+
+            //点击按钮在div中创建一个a标签
+            //创建一个字符串 外双引号则内单引号 外单则内双  字符串拼接外双内双 外单内单
+            $(function(){
+                $("#btn").click(function(){
+                    //创建a标签
+                    $("<a href='http://www.baidu.com'>百度</a>").appendTo($("#dv"));    
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="创建一个p" id="btn">   
+    <div id="dv"></div>
+    </body>
+</html>

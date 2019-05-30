@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>多库共存的问题</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+        //一个html文件引入了多个的js文件库，每个js库中的顶级对象可能都是$
+            var xy = $.noConflict();//把$的权利给了xy了，$就可以作为其他的用法出现在代码中
+            var $ = 10;//普通的变量,10
+            console.log($);
+            //页面加载
+            xy(function(){
+                xy("#btn").click(function(){
+                    console.log("hehe");
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="显示效果" id="btn">   
+        
+    </body>
+</html>

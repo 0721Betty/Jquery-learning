@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>案例高亮显示效果</title>
+        <style>
+            body{
+                background-color: #000;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #wrapper{
+                padding: 30px 0;
+                width: 450px;
+                margin: 100px auto 0;
+                padding: 10px 0 0 10px;
+                background-color: #000;
+                overflow: hidden;
+                border: 1px solid #fff;
+            }
+            #uu{
+                list-style-type: none;
+            }
+            li{
+                display: inline-block;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //页面加载事件
+            $(function(){
+                //获取所有的li添加鼠标进入事件
+                $("#wrapper>ul>li").mouseenter(function(){
+                    //方法一 先把所有的li的透明度值设置为0.5
+                    $("#wrapper>ul>li").css("opacity",0.5);
+                    //设置当前鼠标进入的这个li的透明度为1
+                    $(this).css("opacity",1);
+                    
+                    //方法二
+                    // $(this).css("opacity",1).siblings("li").css("opacity",0.5);
+                });
+                //鼠标离开wrapper的这个div就还原
+                $("#wrapper").mouseleave(function(){
+                    // $("#wrapper>ul>li").css("opacity",1);
+
+                    //方式二 从#wrap这个div中找所有的li,并设置每个li的透明度为1
+                    $(this).find("li").css("opacity","1");
+                });
+            });
+        </script>
+    </head>
+    <body>
+       <div id="wrapper">
+           <ul id="uu">
+               <li><a href="#"><img src="脸谱1.jpg" alt=""></a></li>
+               <li><a href="#"><img src="脸谱2.jpg" alt=""></a></li>
+               <li><a href="#"><img src="脸谱3.jpg" alt=""></a></li>
+               <li><a href="#"><img src="脸谱4.jpg" alt=""></a></li>
+               <li><a href="#"><img src="脸谱5.jpg" alt=""></a></li>
+               <li><a href="#"><img src="脸谱6.jpg" alt=""></a></li>
+           </ul> 
+       </div> 
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>按键改变元素背景颜色</title>
+        <style>
+            div{
+                width: 800px;
+                height: 600px;
+                background-color: gray;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                //用户在页面按键，可以改变div的背景颜色
+                $(document).keydown(function(e){
+                    // console.log(e.keyCode);
+                    switch(e.keyCode){
+                        case 65:{
+                            $("#dv").css("backgroundColor","red");
+                            break;
+                        }//按下键A
+                        case 66:{
+                            $("#dv").css("backgroundColor","green");
+                            break;
+                        }//按下键B
+                        case 67:{
+                            $("#dv").css("backgroundColor","blue");
+                            break;
+                        }//按下键C
+
+                    }
+                })
+            });    
+        </script>
+    </head>
+    <body>
+    <div id="dv"></div>  
+        
+    </body>
+</html>

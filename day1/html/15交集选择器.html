@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>交集选择器</title>
+        <style>
+            .cls{
+                background-color: blue;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //页面加载事件
+            $(function(){
+                //根据id选择器获取按钮，添加点击事件
+                $("#btn").click(function(){
+                    //交集选择器---标签+类选择器p.cls
+                    $("p.cls").css("backgroundColor","green");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="显示效果" id="btn">
+        <p class="cls">呵呵呵</p>
+        <p>嗯嗯嗯</p>
+        <ul>
+            <li>小苏</li>
+            <li>助教</li>
+            <li>班主任</li>
+        </ul>
+        <span class="cls">
+            jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。
+            jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的
+            JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。
+        </span>
+    </body>
+</html>

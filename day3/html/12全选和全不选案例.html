@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>全选和全不选案例</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            table,td{
+                border: 1px solid silver;
+                border-spacing: 0;
+            }
+            table{
+                margin: 20px auto;
+            }
+            td{
+                padding: 10px;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                //全选和全不选
+                //获取thead中的复选框，获取他的这个选中的状态
+                $("#j_cbAll").click(function(){
+                    //获取当前的复选框的状态 方法一
+                    // var flag= $(this).prop("checked");
+                    // if(flag){
+                    //     //如果选中了则tbody中所有的复选框也应该被选中
+                    //     $("#j_tb").find("input").prop("checked",true);
+                    // }else{
+                    //     //如果没有选中则tbody中所有的复选框也没有被选中
+                    //     $("#j_tb").find("input").prop("checked",false);
+                    // }
+
+                    //方法二
+                    $("#j_tb").find("input").prop("checked",$(this).prop("checked"));
+
+                    //每个复选框都要注册点击事件
+                    $("#j_tb").find("input").click(function(){
+                        //先获取所有的复选框的个数
+                        var ckLength= $("#j_tb").find("input").length;
+                        //获取所有选中的复选框的个数
+                        var checkedLength = $("#j_tb :checked").length;
+                        // console.log(ckLength+"====="+checkedLength);//测试代码
+                        //方法一
+                        // if(ckLength==checkedLength){
+                        //     //说明都选中了则thead中的复选框需要被勾上
+                        //     $("#j_cbAll").prop("checked",true);
+                        // }else{
+                        //     $("#j_cbAll").prop("checked",false);
+                        // }
+
+                        //方法二
+                        $("#j_cbAll").prop("checked",ckLength==checkedLength)
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr style="background-color:steelblue;">
+                    <th>
+                        <input type="checkbox" id="j_cbAll">
+                    </th>
+                    <th>课程名称</th>
+                    <th>所属学院</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>JavaScript</td>
+                    <td>前端与移动开发学院</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>css</td>
+                    <td>前端与移动开发学院</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>html</td>
+                    <td>前端与移动开发学院</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>jQuery</td>
+                    <td>前端与移动开发学院</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>

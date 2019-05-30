@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>操作元素的选中的问题</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            /*
+            * 设置或者获取元素的选中问题，推荐使用prop()方法
+              .prop("属性",值); 值一般是布尔类型--->目前这么写代码是设置选中
+              .prop("属性");--->获取这个元素是否选中;
+            */
+            $(function(){
+                $("#btn").click(function(){
+                    //点击按钮让最后一个选中
+                    // $("#ck7").attr("checked",true);
+                    //获取复选框是否选中
+                    // console.log($("#ck7").prop("checked"));//没有选中时false 选中是true
+                    $("#ck7").prop("checked",true);
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="选中/不选中" id="btn">   
+    <input type="checkbox" value="1" name="play">吃饭
+    <input type="checkbox" value="2" name="play">睡觉
+    <input type="checkbox" value="3" name="play">洗脸  
+    <input type="checkbox" value="4" name="play">洗手
+    <input type="checkbox" value="5" name="play">篮球
+    <input type="checkbox" value="6" name="play">羽毛球
+    <input type="checkbox" value="7" name="play" id="ck7">排球
+    
+    </body>
+</html>

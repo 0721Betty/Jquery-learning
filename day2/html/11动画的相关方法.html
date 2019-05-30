@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>动画的相关方法</title>
+        <style>
+            div{
+                width: 300px;
+                height: 200px;
+                background-color: aqua;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            /*
+            * show和hide参数一样
+            * show(参数1，参数2);
+            * 参数1---数字--毫秒ms
+            * 参数1：字符串的值---slow---600ms normal---400ms fast---200ms
+            * 参数2：回调函数 当动画执行完毕后执行该函数 
+            *
+            * slideUp和slideDown参数一样
+            * slideUp(参数1，参数2);
+            * 参数1---数字--毫秒ms
+            * 参数1：字符串的值---slow---600ms normal---400ms fast---200ms
+            * 参数2：回调函数 当动画执行完毕后执行该函数 
+            
+            * fadeOut和fadeIn参数一样
+            * fadeOut(参数1，参数2);
+            * 参数1---数字--毫秒ms
+            * 参数1：字符串的值---slow---600ms normal---400ms fast---200ms
+            * 参数2：回调函数 当动画执行完毕后执行该函数
+            */
+            $(function(){
+                //隐藏
+                $("#btn1").click(function(){
+                    // $("#dv").hide(2000);
+                    // $("#dv").slideUp();//滑入
+
+                    $("#dv").fadeOut(1000);//淡出
+                });
+                //显示
+                $("#btn2").click(function(){
+                    // $("#dv").show(1000,function(){
+                    //     alert("呵呵呵");
+                    // });
+                    // $("#dv").slideDown();//滑出
+                    $("#dv").fadeIn(1000);//淡入 
+                });
+                $("#btn3").click(function(){
+                    // $("#dv").slideToggle();//滑入滑出切换
+                    $("#dv").fadeToggle();//淡入淡出切换
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="隐藏" id="btn1">
+    <input type="button" value="显示" id="btn2">
+    <input type="button" value="切换" id="btn3">
+    <div id="dv"></div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>获取元素的几个方法</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                $("#btn").click(function(){
+                    //获取的是当前元素的前一个兄弟元素
+                    $("#four").prev().css("backgroundColor","yellow");
+                    //获取的是当前元素的前面的所有的兄弟元素
+                    $("#four").prevAll().css("backgroundColor","yellow");
+                    //获取的是当前元素的后一个兄弟元素
+                    $("#four").next().css("backgroundColor","yellow");
+                    //获取的是当前元素的后面的所有的兄弟元素
+                    $("#four").nextAll().css("backgroundColor","yellow");
+                    //获取的是当前元素的父级元素
+                    $("#four").parent().css("backgroundColor","yellow");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="显示效果" id="btn">
+        <div id="dv">
+            <ul id="uu">
+                <li>香蕉</li>
+                <li>苹果</li>
+                <li>葡萄</li>
+                <li id="four">芒果</li>
+                <li>柿子</li>
+                <li>桃子</li>
+                <li>西瓜</li>
+                <li>草莓</li>
+            </ul>
+        </div>
+    </body>
+</html>

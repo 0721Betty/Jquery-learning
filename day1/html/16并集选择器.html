@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>并集选择器</title>
+        <style>
+            div{
+                width: 300px;
+                height: 200px;
+                background-color: green;
+            }
+            .cls{
+                background-color: red;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //页面加载事件
+            $(function(){
+                //根据id选择器获取按钮，添加点击事件
+                $("#btn").click(function(){
+                    //div,p,span
+                    $("#dv,p,.cls").css("backgroundColor","orange");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="显示效果" id="btn">
+        <div id="dv"></div>
+        <p>这是一个p</p>
+        <span class="cls">这是一个span</span>
+        <ul>
+            <li>小苏喜欢吃榴莲</li>
+            <li>助教喜欢吃</li>
+            <li>班主任</li>
+        </ul>
+    </body>
+</html>

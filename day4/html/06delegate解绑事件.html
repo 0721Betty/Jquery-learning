@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>解绑事件</title>
+        <style>
+            div{
+                width: 300px;
+                height: 200px;
+                background-color: green;
+            }
+            p{
+                width: 100px;
+                height: 30px;
+                background-color: red;
+                /* 设置光标移动到p上的样式 */
+                cursor: pointer;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            /*
+                delegate绑定事件对应的方式的解绑方式
+                点击第一个按钮，div有自己的点击事件,有鼠标进入和鼠标离开事件
+                同时为p绑定点击事件
+            */
+            $(function(){
+                $("#btn").click(function(){
+                //为div绑定事件
+                    $("#dv").click(function(){
+                        console.log("div被点了");
+                    }).mouseenter(function(){
+                        console.log("鼠标进来了");
+                    }).mouseleave(function(){
+                        console.log("鼠标离开了");
+                    });
+                    //在div中创建一个p，同时绑定点击事件
+                    $("<p>这是一个p</p>").appendTo($("#dv"));
+                    //为p绑定事件
+                    $("#dv").delegate("p","click",function(){
+                        console.log("p被点了");
+                    });
+                });
+
+                //第二个按钮解绑事件
+                $("#btn2").click(function(){
+                    //p的点击事件没有了，移除了p的所有的事件
+                    $("#dv").undelegate();
+                    //移除的是p的点击事件
+                    $("#dv").undelegate("p","click");
+                    //可以移除多个事件，但是每个事件之间用空格隔开
+                    $("#dv").undelegate("p","click mouseenter");
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="绑定事件" id="btn">    
+    <input type="button" value="解绑事件" id="btn2">
+    <div id="dv"></div>
+    </body>
+</html>

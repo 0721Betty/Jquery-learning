@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>案例动态创建列表</title>
+        <style>
+            div{
+                width: 100px;
+                height: 600px;
+                border: 2px solid red;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            // 根据数组 动态创建一个列表 并且列表有高亮显示效果 点击按钮实现该功能
+            //列表在div中显示 数组：存储十个人的名字
+            var names = ["助教","小红","小明","小刚","小苏","小江","小韩","校长","小张","小丽"]
+           $(function(){
+             $("#btn").click(function(){
+                 //创建列表ul加入到div中，同时保存这个ul标签对象---jQuery对象
+                 var ulObj = $("<ul></ul>").appendTo($("#dv"));
+                 //循环遍历数组，动态的创建列表
+                 var len = names.length
+                 for(var i=0;i<len;i++){
+                    //创建li 并且加入到ul中
+                    $("<li>"+names[i]+"</li>").appendTo(ulObj).mouseenter(function(){
+                        //进入事件
+                        $(this).css("backgroundColor","pink");
+                    }).mouseleave(function(){//离开事件
+                        $(this).css("backgroundColor","")
+                    });
+                 }
+             });
+           }); 
+        </script>
+    </head>
+    <body>
+    <input type="button" value="按钮" id="btn">   
+    <div id="dv"></div>    
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>另一种绑定事件的方式</title>
+        <style>
+            div{
+                width: 300px;
+                height: 200px;
+                background-color: green;
+            }
+            p{
+                width: 100px;
+                height: 30px;
+                background-color: red;
+                /* 设置光标移动到p上的样式 */
+                cursor: pointer;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                //点击按钮为div绑定事件
+                $("#btn").click(function(){
+                    //创建一个p标签
+                    $("<p>这是一个p</p>").appendTo("#dv");
+                    //和delegate是一样的作用但是参数的顺序不一样，都是在为子元素绑定事件，下面的p2也有该事件
+                    $("#dv").on("click","p",function(){
+                        alert("p被点击了");
+                    });
+                });
+                $("#btn2").click(function(){
+                    //创建第二个p标签
+                    $("<p>这是一个p2</p>").appendTo("#dv");
+                });
+            });    
+        </script>
+    </head>
+    <body>
+    <input type="button" value="绑定事件" id="btn">
+    <input type="button" value="绑定事件2" id="btn2">   
+    <div id="dv"></div>
+    </body>
+</html>

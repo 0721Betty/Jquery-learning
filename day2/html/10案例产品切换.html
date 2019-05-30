@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>案例产品切换</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .menu>ul{
+                list-style-type: none;
+            }
+            .wrapper{
+                width: 400px;
+                height: 260px;
+                margin: 60px auto;
+            }
+            .tab-item{
+                height: 30px;
+                display: inline-block;
+                text-align: center;
+                border: 1px solid silver;
+            }
+            /* 鼠标选中时菜单的样式 */
+            .active{
+                border-top-width: 5px;
+                border-top-color: brown;
+            }
+            .main,img{
+                width: 400px;
+                height: 230px;
+            }
+            /* 鼠标选中菜单时其索引对应的图片的样式 */
+            .noSelected{
+                display:none;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                //获取ul中所有的li,添加鼠标进入事件
+                $(".tab>ul>li").mouseenter(function(){
+                    //当前的li添加一个上边框变红变粗的样式 其他的li移除类样式
+                    $(this).addClass("active").siblings("li").removeClass("active");
+                    //先获取鼠标进入当前li的索引值
+                    var index = $(this).index();
+                    //获取下面所有的div中对应索引的这个div添加样式,其他的div应该移除类样式
+                    $(".products>div:eq("+index+")").removeClass("noSelected").siblings().addClass("noSelected");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="tab">
+                <ul>
+                    <li class="tab-item active">国际大品牌</li>
+                    <li class="tab-item ">清洁用品</li>
+                    <li class="tab-item ">国妆名牌</li>
+                    <li class="tab-item ">男士精品</li>
+                </ul>
+            </div>
+            <div class="products">
+                <div class="main "><img src="国际大品牌.png" alt=""></div>
+                <div class="main noSelected"><img src="清洁用品.png" alt=""></div>
+                <div class="main noSelected"><img src="国妆名牌.png" alt=""></div>
+                <div class="main noSelected"><img src="男士精品.png" alt=""></div>
+            </div>
+        </div>
+        
+    </body>
+</html>

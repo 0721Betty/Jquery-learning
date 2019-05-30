@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>点击按钮移除表格和在表格中添加一行</title>
+        <style>
+            #dv{
+                width: 400px;
+                height: 600px;
+                border: 1px solid red;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            var arr = [
+                {"name":"淘宝","href":"http://www.taobao.com"},
+                {"name":"优酷","href":"http://www.youku.com"},
+                {"name":"百度","href":"http://www.baidu.com"},
+                {"name":"土豆","href":"http://www.tudou.com"},
+                {"name":"360","href":"http://www.360.com"}
+            ];
+            $(function(){
+                //点击按钮添加表格
+                $("#btn1").click(function(){
+                    //先为div创建一个子标签table
+                    var table = $("<table border='1' cellspacing='0' cellpadding='0'></table>");
+                    $("#dv").append(table);
+                    //循环遍历数组,创建表格的行与列
+                    for(var i=0;i<arr.length;i++){
+                        var td = arr[i];
+                        var tr = $("<tr></tr>");
+                        table.append(tr);
+                        //在列中显示内容,列在行中
+                        var td1 = $("<td>"+td.name+"</td>");//第一列显示名称
+                        tr.append(td1);
+                        //第二列显示超链接
+                        var td2 = $("<td><a href = "+td.href+">"+td.name+"</a></td>");
+                        tr.append(td2);
+                        //为该表格添加样式
+                        table.css("backgroundColor","red");
+                        //为每一行添加鼠标进入离开的高亮显示样式
+                        tr.mouseenter(function(){
+                            $(this).css("backgroundColor","green");
+                        }).mouseleave(function(){
+                            $(this).css("backgroundColor","");
+                        });
+                    }
+                    
+                });
+                //点击按钮移除表格
+                $("#btn2").click(function(){
+                    //方法一 当前这个按钮的下一个兄弟元素,清空里面的子元素
+                    // $(this).next().empty();
+                    //方法二
+                    // $("#dv").empty();
+
+                    //所有的div中的第一个div自杀了
+                    // $("#dv:first").remove();
+                    //方法三
+                    $("#dv").children("table").remove();
+                });
+                //点击按钮为表格添加一行
+                $("#btn3").click(function(){
+                    //创建一行
+                    var tr = $("<tr><td>腾讯</td><td><a href='http://www.qq.com'>腾讯</a></td></tr>");
+                    //把这一行加入到table中
+                    $("#dv").children("table").append(tr);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="创建一个表格" id="btn1">
+        <input type="button" value="移除表格" id="btn2">
+        <input type="button" value="添加一行" id="btn3">
+        <div id="dv"></div>
+    </body>
+</html>

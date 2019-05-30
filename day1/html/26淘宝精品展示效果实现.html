@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>淘宝精品展示效果实现</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .wrapper{
+                width: 350px;
+                height: 300px;
+                margin: 0px auto;
+                padding: 30px 0;
+            }
+            li{
+                line-height: 1.5em;
+            }
+            a{
+                text-decoration: none;
+                color: pink;
+                
+            }
+            #left,#center,#right{
+                list-style-type: none;
+                padding: 0;
+                margin: 0 auto;
+                display: inline-block;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //.index()方法---->当前这个元素的索引
+            //:eq(索引值)---->选择器---->对应索引的元素
+
+            //页面加载事件
+            $(function(){
+                //左边ul中的li  ul中的直接子集li
+                $("#left>li").mouseenter(function(){
+                    // 先获取当前li的索引值
+                    var index = $(this).index();
+                    // console.log(index);
+                    
+                    //先隐藏所有的li 
+                    $("#center>li").hide();//隐藏
+                    //设置某个li显示
+                    // $("#center>li:eq(索引值)");----->对应的li标签
+
+                    //显示当前的对应的li即可
+                    $("#center>li:eq("+index+")").show();
+                });
+                //右边ul中的li
+                $("#right>li").mouseenter(function(){
+                    //先获取当前的li的索引值(除去了左边ul中li对应的9张图片)
+                    var index = $(this).index()+9;
+                    //先隐藏所有的li
+                    $("#center>li").hide();//隐藏
+                    //设置某个li显示
+                    // $("#center>li:eq(索引值)");----->对应的li标签
+
+                    //显示当前的对应的li即可
+                    $("#center>li:eq("+index+")").show();
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">上衣</a></li>
+            <li><a href="#">外套女</a></li>
+            <li><a href="#">女凉鞋</a></li>
+            <li><a href="#">女靴</a></li>
+            <li><a href="#">羽绒服</a></li>
+            <li><a href="#">裙</a></li>
+            <li><a href="#">项链</a></li>
+            <li><a href="#">女包</a></li>
+            <li><a href="#">裤</a></li>
+        </ul>
+        <ul id="center">
+            <li><a href="#"><img src="上衣.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="女外套.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="女凉鞋.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="女靴.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="羽绒服.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="裙.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="项链.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="女包.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="裤.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="休闲裤.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="外套.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="毛衣.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="男包.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="男小白鞋.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="皮衣.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="短袖.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="羽绒服男.jpg" width="200" height="260"></a></li>
+            <li><a href="#"><img src="衬衫.jpg" width="200" height="260"></a></li>
+        </ul>
+        <ul id="right">
+            <li><a href="#">休闲裤</a></li>
+            <li><a href="#">外套</a></li>
+            <li><a href="#">毛衣</a></li>
+            <li><a href="#">男包</a></li>
+            <li><a href="#">男小白鞋</a></li>
+            <li><a href="#">皮衣</a></li>
+            <li><a href="#">短袖</a></li>
+            <li><a href="#">羽绒服男</a></li>
+            <li><a href="#">衬衫</a></li>
+        </ul>
+    </div>
+    </body>
+</html>

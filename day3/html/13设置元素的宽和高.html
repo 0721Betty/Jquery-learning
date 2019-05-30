@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>设置元素的宽和高</title>
+        <style>
+            div{
+                width: 200px;
+                height: 100px;
+                background-color: blueviolet;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            /*
+             .css()方法获取的宽和高实际上是字符串类型
+             .width()可以获取也可以设置元素的宽
+             .height()可以获取也可以设置元素的高
+            */
+            $(function(){
+                $("#btn").click(function(){
+                    //点击按钮，设置div的宽和高为原来的2倍
+
+                    //先获取div的宽和高 方法一
+                    // var w = $("#dv").css("width");
+                    // var h = $("#dv").css("height");
+                    // //设置div的宽和高
+                    // $("#dv").css("width",(parseInt(w)*2)+"px");
+                    // $("#dv").css("height",(parseInt(h)*2)+"px");
+
+                    //方法二
+                    // var w = $("#dv").width();
+                    // var h = $("#dv").height();//得到的是数字
+                    // $("#dv").css("width",w*2);
+                    // $("#dv").css("height",h*2);
+
+                    //方法三
+                    // $("#dv").width("300");
+                    // $("#dv").height("400");
+
+                    //方法四
+                    $("#dv").width("300px");
+                    $("#dv").height("400px");
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="设置元素的宽和高" id="btn">    
+    <div id="dv"></div>    
+    </body>
+</html>

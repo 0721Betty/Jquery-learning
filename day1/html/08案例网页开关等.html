@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>08案例网页开关灯</title>
+        <style>
+            .cls{
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+       <!-- <input type="button" value="关灯" id="btn">
+        <script>
+            //DOM版本的方法一
+            document.getElementById("btn").onclick=function(){
+                //判断
+                var body = document.body;
+                if(body.className=="cls"){
+                    body.className="";
+                    this.value="关灯";
+                }else{
+                    body.className="cls";
+                    this.value="开灯";
+                }
+            };
+        </script>  -->
+
+        <!-- jQuery版本的 -->
+        <input type="button" value="开关" id="btn">
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //方法二
+            // $("body")是jQuery对象  $("body")[0]是DOM对象 只有DOM对象才能用.className
+            // $("#btn").click(function(){
+            //     if($("body")[0].className=="cls"){
+            //         $("body")[0].className="";
+            //     }else{
+            //         $("body")[0].className="cls";
+            //     }
+            // });
+
+            //方法三
+            $("#btn").click(function(){
+                //判断
+                if($("body").hasClass("cls")){
+                    //应用了
+                    $("body").removeClass("cls");
+                }else{
+                    //没有应用
+                    $("body").addClass("cls");
+                }
+            });
+        </script>
+    </body>
+</html>

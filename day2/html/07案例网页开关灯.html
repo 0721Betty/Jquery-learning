@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>案例网页开关灯</title>
+        <style>
+            .cls{
+                background-color: black;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+           $(function(){
+               $("#btn").click(function(){
+                //判断是否应用了类样式 方法一
+                    // if($("body").hasClass("cls")){
+                    //     //应用了则移除
+                    //     $("body").removeClass("cls");
+                    // }else{
+                    //     //没有应用则添加
+                    //     $("body").addClass("cls");
+                    // }
+
+                    //方法二 切换类样式
+                        $("body").toggleClass("cls");
+               });
+           }); 
+        </script>
+    </head>
+    <body>
+        <input type="button" value="开关" id="btn">
+        
+    </body>
+</html>

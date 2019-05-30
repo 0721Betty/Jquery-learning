@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>练习创建多个p标签</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                $("#btn").click(function(){
+                    //创建10个p标签
+                    for(var i=0;i<10;i++){
+                        //创建p标签,同时，鼠标进入到p之后有高亮显示效果
+                        $("<p>这是一个p</p>").appendTo($("#dv")).mouseenter(function(){
+                            $(this).css("backgroundColor","pink");
+                        }).mouseleave(function(){
+                            $(this).css("backgroundColor","");
+                        });
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="创建多个p" id="btn">
+        <div id="dv"></div>
+    </body>
+</html>

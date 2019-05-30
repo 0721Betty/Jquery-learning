@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>手风琴案例实现</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+        //页面加载事件
+            $(function(){
+               //获取所有的li,设置当前的li的宽度为800px 其他的宽为100
+               $("#box>ul>li").mouseenter(function(){
+                   //其他的li宽度设置  sibings兄弟
+                   $(this).sibings("li").css("width","100px");
+                   //当前的li宽度设置 
+                   $(this).css("width","800px");
+               });
+               $("#box>ul>li").mouseleave(function(){
+                   //所有的li宽度恢复为240px
+                   $("#box>ul>li").sibings("li").css("width","240px");
+               });  
+        }); 
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <ul>
+                <li><img src="" alt=""></li>
+                <li><img src="" alt=""></li>
+                <li><img src="" alt=""></li>
+                <li><img src="" alt=""></li>
+                <li><img src="" alt=""></li>
+            </ul>
+        </div>
+        
+    </body>
+</html>

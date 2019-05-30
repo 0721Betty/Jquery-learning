@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>为元素绑定多个相同事件的方式及注意问题</title>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            $(function(){
+                //为按钮绑定多个相同事件 可以执行 方法一
+                // $("#btn").click(function(){
+                //     console.log("hhh");
+                // }).click(function(){
+                //     console.log("qqq");
+                // }).click(function(){
+                //     console.log("eee");
+                // });
+                
+                //方法二
+                // $("#btn").bind("click",function(){
+                //     console.log("hhh");
+                // }).bind("click",function(){
+                //     console.log("qqq");
+                // });
+
+                //bind方法绑定多个相同的事件的时候，如果使用的是键值对的方式，只能实现最后一个方法，前面的会被覆盖
+                $("#btn").bind({"click":function(){
+                    console.log("hhh");
+                },"click":function(){
+                    console.log("qqq");
+                }});
+                //bind方法内部是调用的另一个方法绑定的事件
+            });
+        </script>
+    </head>
+    <body>
+    <input type="button" value="显示效果" id="btn">    
+        
+    </body>
+</html>

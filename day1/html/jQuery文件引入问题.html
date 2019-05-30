@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery文件引入问题</title>
+    </head>
+    <body>
+        <input type="button" value="按钮" id="btn">
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+            //点击按钮,显示一句话
+            //事件代码必须写在这个script中不能写在上面的script中
+            $("#btn").click(function(){
+                console.log("呵呵呵呵");
+            });
+        </script>
+    </body>
+</html>

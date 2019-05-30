@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>元素的创建</title>
+        <style>
+            div{
+                width: 300px;
+                height: 200px;
+                border: 1px solid red;
+            }
+        </style>
+        <script src="jquery-1.12.1.js"></script>
+        <script>
+           $(function(){
+               //点击按钮再创建一个按钮 以对象的方式创建元素
+            //    $("#btn").click(function(){
+            //        $("<input type ='button' value='按钮'>").appendTo($("#dv"));
+            //    });
+
+            //元素创建的另一种方式 通过innerHTML的方式创建 以字符串的方式创建元素
+            //如果div里面有内容 则新创建的会覆盖原来的内容
+            $("#btn").click(function(){
+                $("#dv").html("<input type = 'button' value='按钮'>");
+            });
+           }); 
+        </script>
+    </head>
+    <body>
+    <input type="button" value="创建一个按钮" id="btn">   
+    <div id="dv"></div>
+    </body>
+</html>
